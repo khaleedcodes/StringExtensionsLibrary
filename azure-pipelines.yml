@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool: 
-  name: Self-Hosted-Agent  # Use your self-hosted agent
+  name: Default
 
 steps:
 - task: UseDotNet@2
@@ -27,5 +27,5 @@ steps:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: 'AZURE_ARTIFACT_FEED'
+    publishVstsFeed: 'MyNuGetFeed'
   displayName: 'Publish to Azure Artifacts'
