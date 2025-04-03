@@ -10,6 +10,12 @@ steps:
     packageType: 'sdk'
     version: '8.x'
 
+- task: NuGetToolInstaller@1
+  displayName: 'NuGet Tool Installer'
+
+- task: NuGetAuthenticate@1
+  displayName: 'NuGet Authenticate'
+
 - script: dotnet restore ClassLibrary1/ClassLibrary1.sln
   displayName: 'Restore dependencies'
 
@@ -23,7 +29,5 @@ steps:
   displayName: 'Pack NuGet Package'
 
 - script: |
-    dotnet nuget push $(Build.ArtifactStagingDirectory)/*.nupkg \
-      --source "https://pkgs.dev.azure.com/lab-4/_packaging/MyNuGetFeed/nuget/v3/index.json" \
-      --api-key az
+      nuget.exe push -Source "https://pkgs.dev.azure.com/lab-4/StringExtensionsLibraryProject/_packaging/MyNuGetFeed/nuget/v3/index.json" -ApiKey az $(Build.ArtifactStagingDirectory)\*.nupkg
   displayName: 'Publish to Azure Artifacts'
