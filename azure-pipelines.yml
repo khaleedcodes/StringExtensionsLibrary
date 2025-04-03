@@ -10,6 +10,14 @@ steps:
     packageType: 'sdk'
     version: '8.x'
 
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: 'ClassLibrary1/ClassLibrary1.sln'
+    feedsToUse: 'config'
+    nugetConfigPath: 'ClassLibrary1/nuget.config'
+  displayName: 'Restore NuGet Packages'
+
 - script: dotnet restore ClassLibrary1/ClassLibrary1.sln
   displayName: 'Restore dependencies'
 
