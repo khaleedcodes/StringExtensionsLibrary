@@ -19,7 +19,7 @@ steps:
 - script: dotnet test StringExtensionsLibrary.Tests/StringExtensionsLibrary.Tests..csproj --configuration Release
   displayName: 'Run tests'
 
-- script: dotnet pack ClassLibrary1/ClassLibrary1.csproj --configuration Release --output $(Build.ArtifactStagingDirectory)
+- script: dotnet pack ClassLibrary1/StringExtensionsLibrary.csproj --configuration Release --output $(Build.ArtifactStagingDirectory)
   displayName: 'Pack NuGet Package'
 
 - task: NuGetCommand@2
