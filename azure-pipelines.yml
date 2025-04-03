@@ -29,5 +29,5 @@ steps:
   displayName: 'Pack NuGet Package'
 
 - script: |
-      nuget.exe push -Source "https://pkgs.dev.azure.com/lab-4/StringExtensionsLibraryProject/_packaging/MyNuGetFeed/nuget/v3/index.json" -ApiKey az $(Build.ArtifactStagingDirectory)\*.nupkg
+      nuget.exe push -Source "https://pkgs.dev.azure.com/lab-4/StringExtensionsLibraryProject/_packaging/MyNuGetFeed/nuget/v3/index.json" -ApiKey az $(Build.ArtifactStagingDirectory)\*.nupkg -Timeout 1000
   displayName: 'Publish to Azure Artifacts'
