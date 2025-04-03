@@ -10,7 +10,7 @@ steps:
     packageType: 'sdk'
     version: '8.x'
 
-- script: dotnet restore ./ClassLibrary/ClassLibrary1.sln
+- script: dotnet restore ./ClassLibrary1/ClassLibrary1.sln
   displayName: 'Restore dependencies'
 
 - script: dotnet build --configuration Release
