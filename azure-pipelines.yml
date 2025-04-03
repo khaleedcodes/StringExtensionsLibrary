@@ -16,7 +16,7 @@ steps:
 - script: dotnet build ClassLibrary1/ClassLibrary1.sln --configuration Release
   displayName: 'Build project'
 
-- script: dotnet test StringExtensionsLibrary.Tests/StringExtensionsLibrary.Tests.csproj --configuration Release
+- script: dotnet test StringExtensionsLibrary.Tests/StringExtensionsLibrary.Tests..csproj --configuration Release
   displayName: 'Run tests'
 
 - script: dotnet pack ClassLibrary1/ClassLibrary1.csproj --configuration Release --output $(Build.ArtifactStagingDirectory)
