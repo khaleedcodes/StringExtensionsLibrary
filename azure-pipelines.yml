@@ -10,16 +10,16 @@ steps:
     packageType: 'sdk'
     version: '8.x'
 
-- script: dotnet restore ./ClassLibrary1/ClassLibrary1.sln
+- script: dotnet restore ClassLibrary1/ClassLibrary1.sln
   displayName: 'Restore dependencies'
 
-- script: dotnet build --configuration Release
+- script: dotnet build ClassLibrary1/ClassLibrary1.sln --configuration Release
   displayName: 'Build project'
 
-- script: dotnet test --configuration Release
+- script: dotnet test StringExtensionsLibrary.Tests/StringExtensionsLibrary.Tests.csproj --configuration Release
   displayName: 'Run tests'
 
-- script: dotnet pack --configuration Release --output $(Build.ArtifactStagingDirectory)
+- script: dotnet pack ClassLibrary1/ClassLibrary1.csproj --configuration Release --output $(Build.ArtifactStagingDirectory)
   displayName: 'Pack NuGet Package'
 
 - task: NuGetCommand@2
